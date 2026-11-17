@@ -1,0 +1,84 @@
+/* CSS Design Tokens */
+
+:root {
+    --primary-color: #6c63ff;
+    --secondary-color: #ff6584;
+    --background-color: #f4f3ff;
+    --text-color: #252342;
+    --card-color: #ffffff;
+
+    --small-spacing: 10px;
+    --medium-spacing: 20px;
+    --large-spacing: 40px;
+
+    --main-font: Arial, sans-serif;
+}
+
+/* General Styling */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--main-font);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Header */
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: var(--large-spacing);
+}
+
+/* Main Section */
+
+main {
+    padding: var(--large-spacing);
+}
+
+.card {
+    background-color: var(--card-color);
+    padding: var(--large-spacing);
+    max-width: 600px;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 26px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Button */
+
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: var(--small-spacing) var(--medium-spacing);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: var(--medium-spacing);
+}

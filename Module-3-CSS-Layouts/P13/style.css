@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+header {
+    background-color: #1f2a44;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+/* Navigation using Flexbox */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: #f26b38;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.intro {
+    text-align: center;
+    padding: 30px;
+}
+
+/* Grid layout */
+.section-title {
+    text-align: center;
+    margin: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-card {
+    background-color:#e63946;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+/* Flexbox layout */
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.flex-card {
+    background-color: #2a9d8f;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 150px;
+    font-size: 20px;
+}
+
+footer {
+    background-color: #1f2a44;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    nav {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .flex-container {
+        flex-direction: column;
+    }
+
+    .flex-card {
+        width: 100%;
+    }
+}
