@@ -1,0 +1,184 @@
+/* ==========================================================
+   Q1 - Mobile-first BASE styles (no media queries)
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #1f2937;
+  background: #fffaf5;
+}
+
+/* Flexible images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 90% container */
+.container {
+  width: 90%;
+  max-width: 75rem;
+  margin-inline: auto;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-block: 1rem;
+}
+
+h1, h2, h3 { line-height: 1.2; margin: 0; }
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+h3 { font-size: 1.125rem; }
+p  { margin: 0; }
+
+/* Header */
+.site-header {
+  background: #9a3412;
+  color: #ffffff;
+  padding: 1.25rem 1rem;
+  border-radius: .75rem;
+}
+.tagline { margin-top: .25rem; }
+
+/* Nav: stacked, full-width links, big tap targets */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.nav a {
+  display: block;
+  padding: .875rem 1rem;
+  background: #7c2d12;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: .5rem;
+}
+.nav a:hover,
+.nav a:focus-visible {
+  background: #431407;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Today's Special banner */
+.banner {
+  background: #ffedd5;
+  border-radius: .75rem;
+  overflow: hidden;
+}
+.banner-text { padding: 1rem; }
+.banner-text h2 { margin-bottom: .5rem; }
+
+/* Menu cards: ONE column, 1rem gap */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: .75rem;
+  overflow: hidden;
+}
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .5rem;
+  padding: 1rem;
+}
+.price {
+  font-weight: 700;
+  color: #9a3412;
+}
+
+/* Footer */
+.site-footer {
+  background: #1f2937;
+  color: #f9fafb;
+  padding: 1rem;
+  border-radius: .75rem;
+}
+
+/* ==========================================================
+   BREAKPOINTS (min-width, written smallest -> largest)
+
+   How the widths were chosen: start at 320px in DevTools device
+   mode and drag the viewport wider, adding a query only where
+   the layout starts to look wrong.
+
+   600px (37.5em)  - the single column of cards is now ~540px
+                     wide: photos are huge and text lines are
+                     stretched. Room for 2 cards per row, and
+                     the three nav links fit side by side.
+   960px (60em)    - the banner stacked above the menu pushes
+                     the cards far down the page while empty
+                     space grows on both sides. Room for a
+                     sidebar banner and 3 cards per row.
+
+   em units are used so the breakpoints respect the user's
+   browser font-size setting.
+   ========================================================== */
+
+/* Breakpoint 1: 600px+ -> 2 cards per row, nav becomes a row */
+@media (min-width: 37.5em) {
+  .nav {
+    flex-direction: row;
+  }
+  .nav a {
+    flex: 1;
+    text-align: center;
+  }
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Breakpoint 2: 960px+ -> 3 cards per row, banner beside the menu.
+   Header and footer span the full width via grid-template-areas. */
+@media (min-width: 60em) {
+  .layout {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    grid-template-areas:
+      "header header"
+      "nav    nav"
+      "banner menu"
+      "footer footer";
+    align-items: start;
+    gap: 1.5rem;
+  }
+  /* main is only a wrapper, so let banner and menu join the grid */
+  .main {
+    display: contents;
+  }
+  .site-header { grid-area: header; }
+  .nav         { grid-area: nav; }
+  .banner      { grid-area: banner; }
+  .menu        { grid-area: menu; }
+  .site-footer { grid-area: footer; }
+
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

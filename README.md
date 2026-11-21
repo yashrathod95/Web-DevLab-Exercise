@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Web-DevLab-Exercise
 web dev lab exercise  given in class
 
@@ -111,6 +110,3 @@ Through these practical assignments, I learned:
 ---
 
 *This repository is created for academic learning and practical submission.*
-=======
-# Web-DevLab-Exercise
->>>>>>> aeb43c974a4551687709eb38c8f06c5ce2e5b618
